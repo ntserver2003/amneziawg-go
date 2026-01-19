@@ -11,6 +11,11 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+#          - platform: "amd64"
+          - platform: "arm64"
     name: build
     steps:
       - name: Checkout
@@ -38,4 +43,5 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
+          platforms: linux/arm64
           tags: ${{ steps.metadata.outputs.tags }}
