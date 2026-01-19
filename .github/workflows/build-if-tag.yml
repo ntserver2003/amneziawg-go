@@ -33,7 +33,7 @@ jobs:
         uses: docker/metadata-action@v5
         id: metadata
         with:
-          images: amneziavpn/${{ env.APP }}
+          images: ntserver/${{ env.APP }}
           tags: type=semver,pattern={{version}}
 
       - name: Set up Docker Buildx
