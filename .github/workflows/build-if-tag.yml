@@ -14,7 +14,7 @@ jobs:
     strategy:
       matrix:
         include:
-#          - platform: "amd64"
+#  TODO        - platform: "amd64"
           - platform: "arm64"
     name: build
     steps:
