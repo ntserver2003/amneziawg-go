@@ -13,9 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        include:
-#  TODO        - platform: "amd64"
-          - platform: "arm64"
+        platform: ["amd64", "arm64"]
     name: build
     steps:
       - name: Checkout
@@ -43,5 +41,5 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          platforms: linux/arm64
+          platforms: linux/${{ matrix.platform }}
           tags: ${{ steps.metadata.outputs.tags }}
